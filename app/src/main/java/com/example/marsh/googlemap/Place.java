@@ -22,6 +22,24 @@ public class Place implements Parcelable{
     private int ranking;
 
 
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeDouble(longitude);
+        dest.writeDouble(latitude);
+        dest.writeString(imageUrl);
+        dest.writeInt(ranking);
+
+    }
+
+    protected Place(Parcel in) {
+        name = in.readString();
+        longitude = in.readDouble();
+        latitude = in.readDouble();
+        imageUrl = in.readString();
+        ranking = in.readInt();
+    }
+
+
     public String getImageUrl() {
         return imageUrl;
     }
@@ -46,11 +64,7 @@ public class Place implements Parcelable{
         this.latitude = latitude;
     }
 
-    protected Place(Parcel in) {
-        name = in.readString();
-        longitude = in.readDouble();
-        latitude = in.readDouble();
-    }
+
 
     public static final Creator<Place> CREATOR = new Creator<Place>() {
         @Override
@@ -93,10 +107,5 @@ public class Place implements Parcelable{
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-        dest.writeDouble(longitude);
-        dest.writeDouble(latitude);
-    }
+
 }

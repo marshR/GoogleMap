@@ -47,6 +47,22 @@ public class PlaceListActivity extends AppCompatActivity implements PlaceListLis
 
     }
 
+    @Override
+    public void onClickPlaceRow(Place place) {
+        DetailPlaceActivity.start(this, place);
+    }
+
+    @Override
+    public void onResponse(Call<Places> call, Response<Places> response) {
+        mPlaceList = response.body().places;
+
+        setPlacesList();
+    }
+
+    @Override
+    public void onFailure(Call<Places> call, Throwable t) {
+        Toast.makeText(this, t.getMessage(), Toast.LENGTH_LONG).show();
+    }
     private void  fillPlaceList() {
         mPlaceList = new ArrayList<>();
 
@@ -60,29 +76,5 @@ public class PlaceListActivity extends AppCompatActivity implements PlaceListLis
         Call<Places> call = service.getPlaces();
         call.enqueue(this);
 
-
-    }
-
-    private void generatePlaceList() {
-        mPlaceList = new ArrayList<>();
-        mPlaceList.add(new Place("casa", 29.073823, -110.980698));
-        mPlaceList.add(new Place("escuela", 21, 40));
-
-    }
-
-    @Override
-    public void onClickPlaceRow(Place place) {
-        MapsActivity.start(this, place);
-    }
-
-    @Override
-    public void onResponse(Call<Places> call, Response<Places> response) {
-        mPlaceList = response.body().places;
-        setPlacesList();
-    }
-
-    @Override
-    public void onFailure(Call<Places> call, Throwable t) {
-        Toast.makeText(this, t.getMessage(), Toast.LENGTH_LONG).show();
     }
 }

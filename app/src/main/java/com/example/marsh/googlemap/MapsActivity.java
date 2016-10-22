@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private static final String PLACE_EXTRA_KEY = "holi ";
+    public static final String PLACE_EXTRA_KEY = "holi ";
     private GoogleMap mMap;
     private Place mPlace;
 
