@@ -1,13 +1,15 @@
-package com.example.marsh.googlemap;
+package com.example.marsh.googlemap.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.marsh.googlemap.ListClickElement;
+import com.example.marsh.googlemap.Place;
+import com.example.marsh.googlemap.PlaceListListener;
+import com.example.marsh.googlemap.R;
 
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
     private PlaceListListener mPlaceListListener;
 
 
-    PlaceListAdapter(List<Place> placeList, PlaceListListener placeListListener){
+    public PlaceListAdapter(List<Place> placeList, PlaceListListener placeListListener){
 
         this.mPlaceList = placeList;
         this.mPlaceListListener = placeListListener;

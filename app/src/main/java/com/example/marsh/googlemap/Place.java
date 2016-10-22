@@ -3,15 +3,42 @@ package com.example.marsh.googlemap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by marsh on 10/15/16.
  */
 public class Place implements Parcelable{
 
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("long")
     private double longitude;
+    @SerializedName("lat")
     private double latitude;
+    @SerializedName("image_url")
+    private String imageUrl;
+    @SerializedName("ranking")
+    private int ranking;
+
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public int getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
+    }
+
+
 
     public Place(String name, double longitude, double latitude) {
         this.name = name;
