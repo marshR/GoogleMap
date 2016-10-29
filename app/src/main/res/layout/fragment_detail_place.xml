@@ -23,9 +23,23 @@
         android:id="@+id/place_name_attribute"
         style="@style/attribute_text" />
 
+    <!-- *****RANKING*****!-->
     <TextView
         android:text="@string/title_ranking"
         style="@style/header_text"/>
+
+    <!-- *****Rating bar *****!-->
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/ratingBarStyleSmall"
+        android:numStars="@string/title_ranking"
+        android:stepSize="0.1"
+        android:isIndicator="true" />
+
+
     <TextView
         android:id="@+id/place_ranking_attribute"
         style="@style/attribute_text"/>
